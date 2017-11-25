@@ -2,8 +2,8 @@ import requests
 from typing import List
 
 
-def get_trending_words(TOC: str) -> List[str]:
-    url = 'http://commutelondon.com/CommuteLondon/CommuteLondon?getrequest=wordlistrelated&gettocname={}'.format(TOC)
+def get_trending_words(operator: str) -> List[str]:
+    url = 'http://commutelondon.com/CommuteLondon/CommuteLondon?getrequest=wordlistrelated&gettocname={}'.format(operator)
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -19,4 +19,5 @@ def get_trending_words(TOC: str) -> List[str]:
 
 
 if __name__ == "__main__":
-    print(get_trending_words("VT+EAST+COAST"))
+    words = get_trending_words("VT+EAST+COAST")
+    print(words, "({})".format(len(words)))
